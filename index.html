@@ -1,34 +1,34 @@
 <!doctype html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>الخزنة المفقودة | CTF</title>
+<title>The Lost Vault | CTF</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600&family=Reem+Kufi:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;800&family=IBM+Plex+Sans:wght@400;600&display=swap" rel="stylesheet">
 <style>
 :root{--paper:#E8ECF0;--card:#F6F8FA;--ink:#14213D;--muted:#4A5671;--stamp:#B3122B;--hl:#FFE45C;--ok:#0B6E4F}
 *{box-sizing:border-box}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
-body{margin:0;background:var(--paper);color:var(--ink);font:400 1.05rem/1.9 "IBM Plex Sans Arabic",system-ui,sans-serif;padding:max(2rem,env(safe-area-inset-top,0px)) 1.2rem max(3rem,env(safe-area-inset-bottom,0px))}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1.05rem/1.75 "IBM Plex Sans",system-ui,sans-serif;padding:max(2rem,env(safe-area-inset-top,0px)) 1.2rem max(3rem,env(safe-area-inset-bottom,0px))}
 main{max-width:46rem;margin:0 auto}
-h1,h2{font-family:"Reem Kufi","IBM Plex Sans Arabic",sans-serif;margin:0;line-height:1.3}
-h1{font-size:clamp(2.6rem,9vw,4.4rem);font-weight:700}
-h2{font-size:1.5rem;font-weight:700}
+h1,h2{font-family:"Archivo","IBM Plex Sans",sans-serif;margin:0;line-height:1.2}
+h1{font-size:clamp(2.6rem,9vw,4.4rem);font-weight:800;letter-spacing:-.02em}
+h2{font-size:1.5rem;font-weight:800}
 .lead{color:var(--muted);max-width:34rem;margin:.6rem 0 0}
 header{position:relative;padding-bottom:2rem;border-bottom:3px solid var(--ink);margin-bottom:2rem}
-.stamp{position:absolute;top:.2rem;left:0;border:3px solid var(--stamp);color:var(--stamp);font:700 1.3rem "Reem Kufi",sans-serif;padding:.1rem .9rem;transform:rotate(-8deg);border-radius:4px;opacity:.85}
-.file{position:relative;background:var(--card);border:2px solid var(--ink);border-right-width:10px;padding:1.2rem 1.4rem 1.4rem;margin-bottom:1.6rem}
+.stamp{position:absolute;top:.2rem;right:0;border:3px solid var(--stamp);color:var(--stamp);font:800 1.1rem "Archivo",sans-serif;padding:.1rem .9rem;transform:rotate(8deg);border-radius:4px;opacity:.85}
+.file{position:relative;background:var(--card);border:2px solid var(--ink);border-left-width:10px;padding:1.2rem 1.4rem 1.4rem;margin-bottom:1.6rem}
 .file p{margin:.5rem 0 0}
 .file .tag{font-weight:600;color:var(--muted);font-size:.95rem}
 .file mark{background:var(--hl);padding:0 .25rem}
-.file .done{display:none;position:absolute;top:.8rem;left:1rem;border:3px solid var(--ok);color:var(--ok);font:700 1.2rem "Reem Kufi",sans-serif;padding:0 .8rem;transform:rotate(-6deg);border-radius:4px}
+.file .done{display:none;position:absolute;top:.8rem;right:1rem;border:3px solid var(--ok);color:var(--ok);font:800 1.1rem "Archivo",sans-serif;padding:0 .8rem;transform:rotate(6deg);border-radius:4px}
 .file.solved .done{display:block;animation:stamp .25s ease-out}
-@keyframes stamp{from{transform:rotate(-6deg) scale(1.8);opacity:0}to{transform:rotate(-6deg) scale(1);opacity:1}}
+@keyframes stamp{from{transform:rotate(6deg) scale(1.8);opacity:0}to{transform:rotate(6deg) scale(1);opacity:1}}
 form{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.6rem}
-input{flex:1 1 14rem;font:500 1rem ui-monospace,Menlo,Consolas,monospace;direction:ltr;text-align:left;padding:.7rem .9rem;border:2px solid var(--ink);background:#fff;color:var(--ink);border-radius:0}
-button{font:600 1rem "IBM Plex Sans Arabic",sans-serif;padding:.7rem 1.4rem;border:2px solid var(--ink);background:var(--ink);color:#fff;cursor:pointer;border-radius:0}
+input{flex:1 1 14rem;font:500 1rem ui-monospace,Menlo,Consolas,monospace;padding:.7rem .9rem;border:2px solid var(--ink);background:#fff;color:var(--ink);border-radius:0}
+button{font:600 1rem "IBM Plex Sans",sans-serif;padding:.7rem 1.4rem;border:2px solid var(--ink);background:var(--ink);color:#fff;cursor:pointer;border-radius:0}
 button:hover{background:var(--stamp);border-color:var(--stamp)}
 :focus-visible{outline:3px solid var(--stamp);outline-offset:2px}
 #msg{min-height:2rem;margin:.6rem 0 0;font-weight:600}
@@ -40,37 +40,37 @@ footer{color:var(--muted);font-size:.9rem;margin-top:2rem}
 <body>
 <main>
 <header>
-  <span class="stamp">سرّي</span>
-  <h1>الخزنة المفقودة</h1>
-  <p class="lead">خزنة الموقع اختفت، وخلّفت وراها فلاجين. دور عليهم وارجع بصيغة <code dir="ltr">FLAG{...}</code>.</p>
+  <span class="stamp">CLASSIFIED</span>
+  <h1>The Lost Vault</h1>
+  <p class="lead">The site's vault has vanished, leaving two flags behind. Find them and submit them in the format <code>FLAG{...}</code>.</p>
 </header>
 
-<!-- TODO: امسح هالسطر قبل ما نرفع الموقع للإنتاج -->
+<!-- TODO: remove this line before we ship the site to production -->
 <!-- FLAG{v1ew_s0urc3_f1nds_h1dd3n_th1ngs} -->
 <section class="file" id="c1">
-  <span class="done">تم الحل</span>
-  <span class="tag">الملف الأول</span>
-  <h2>اللي ما تشوفه العين</h2>
-  <p>الفلاج موجود في هذي الصفحة نفسها، لكن <mark>ما راهوش ظاهر</mark> على الشاشة. المتصفح يعرف يوريك كيف انبنت الصفحة.</p>
+  <span class="done">SOLVED</span>
+  <span class="tag">File 1</span>
+  <h2>What the eye can't see</h2>
+  <p>The flag is on this very page, but it's <mark>not visible</mark> on screen. Your browser can show you how the page was built.</p>
 </section>
 
 <section class="file" id="c2">
-  <span class="done">تم الحل</span>
-  <span class="tag">الملف الثاني</span>
-  <h2>ممنوع على الروبوتات</h2>
-  <p>كل موقع يقول لمحركات البحث وين <mark>ما تدخلش</mark>. اعرف الجواب من الموقع نفسه، وادخل انت وين الروبوتات ممنوعة.</p>
+  <span class="done">SOLVED</span>
+  <span class="tag">File 2</span>
+  <h2>No robots allowed</h2>
+  <p>Every website tells search engines where <mark>not to go</mark>. Find that answer on the site itself, then go where the robots are forbidden.</p>
 </section>
 
-<section class="file" id="submit" style="border-right-color:var(--stamp)">
-  <h2>سلّم الفلاج</h2>
+<section class="file" id="submit" style="border-left-color:var(--stamp)">
+  <h2>Submit a flag</h2>
   <form id="f" autocomplete="off">
-    <input id="flag" placeholder="FLAG{...}" aria-label="الفلاج" required>
-    <button type="submit">تحقق</button>
+    <input id="flag" placeholder="FLAG{...}" aria-label="Flag" required>
+    <button type="submit">Check</button>
   </form>
   <p id="msg" role="status"></p>
 </section>
 
-<footer>تحدّي ويب للمبتدئين. ما فيه شي يحتاج أدوات خارجية، متصفحك يكفي.</footer>
+<footer>A beginner web challenge. No external tools needed, your browser is enough.</footer>
 </main>
 
 <script>
@@ -84,16 +84,16 @@ document.getElementById("f").addEventListener("submit",async e=>{
   e.preventDefault();
   const v=document.getElementById("flag").value.trim();
   msg.className="";
-  if(!(window.crypto&&crypto.subtle)){msg.textContent="افتح الصفحة عبر https أو localhost.";msg.className="bad";return}
+  if(!(window.crypto&&crypto.subtle)){msg.textContent="Open this page over https or localhost.";msg.className="bad";return}
   const h=await sha(v);
   const hit=Object.keys(HASHES).find(k=>HASHES[k]===h);
   if(hit){
     document.getElementById(hit).classList.add("solved");
-    msg.textContent="صح! الفلاج متاع "+(hit==="c1"?"الملف الأول":"الملف الثاني")+".";
+    msg.textContent="Correct! That's the flag for "+(hit==="c1"?"File 1":"File 2")+".";
     msg.className="ok";
     document.getElementById("flag").value="";
   }else{
-    msg.textContent="الفلاج غلط. تأكد من الصيغة والحروف.";
+    msg.textContent="Wrong flag. Check the format and the characters.";
     msg.className="bad";
   }
 });
