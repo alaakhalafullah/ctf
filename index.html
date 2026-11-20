@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>الخزنة المفقودة | CTF</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;600&family=Reem+Kufi:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#E8ECF0;--card:#F6F8FA;--ink:#14213D;--muted:#4A5671;--stamp:#B3122B;--hl:#FFE45C;--ok:#0B6E4F}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 1.05rem/1.9 "IBM Plex Sans Arabic",system-ui,sans-serif;padding:max(2rem,env(safe-area-inset-top,0px)) 1.2rem max(3rem,env(safe-area-inset-bottom,0px))}
+main{max-width:46rem;margin:0 auto}
+h1,h2{font-family:"Reem Kufi","IBM Plex Sans Arabic",sans-serif;margin:0;line-height:1.3}
+h1{font-size:clamp(2.6rem,9vw,4.4rem);font-weight:700}
+h2{font-size:1.5rem;font-weight:700}
+.lead{color:var(--muted);max-width:34rem;margin:.6rem 0 0}
+header{position:relative;padding-bottom:2rem;border-bottom:3px solid var(--ink);margin-bottom:2rem}
+.stamp{position:absolute;top:.2rem;left:0;border:3px solid var(--stamp);color:var(--stamp);font:700 1.3rem "Reem Kufi",sans-serif;padding:.1rem .9rem;transform:rotate(-8deg);border-radius:4px;opacity:.85}
+.file{position:relative;background:var(--card);border:2px solid var(--ink);border-right-width:10px;padding:1.2rem 1.4rem 1.4rem;margin-bottom:1.6rem}
+.file p{margin:.5rem 0 0}
+.file .tag{font-weight:600;color:var(--muted);font-size:.95rem}
+.file mark{background:var(--hl);padding:0 .25rem}
+.file .done{display:none;position:absolute;top:.8rem;left:1rem;border:3px solid var(--ok);color:var(--ok);font:700 1.2rem "Reem Kufi",sans-serif;padding:0 .8rem;transform:rotate(-6deg);border-radius:4px}
+.file.solved .done{display:block;animation:stamp .25s ease-out}
+@keyframes stamp{from{transform:rotate(-6deg) scale(1.8);opacity:0}to{transform:rotate(-6deg) scale(1);opacity:1}}
+form{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.6rem}
+input{flex:1 1 14rem;font:500 1rem ui-monospace,Menlo,Consolas,monospace;direction:ltr;text-align:left;padding:.7rem .9rem;border:2px solid var(--ink);background:#fff;color:var(--ink);border-radius:0}
+button{font:600 1rem "IBM Plex Sans Arabic",sans-serif;padding:.7rem 1.4rem;border:2px solid var(--ink);background:var(--ink);color:#fff;cursor:pointer;border-radius:0}
+button:hover{background:var(--stamp);border-color:var(--stamp)}
+:focus-visible{outline:3px solid var(--stamp);outline-offset:2px}
+#msg{min-height:2rem;margin:.6rem 0 0;font-weight:600}
+#msg.ok{color:var(--ok)}#msg.bad{color:var(--stamp)}
+footer{color:var(--muted);font-size:.9rem;margin-top:2rem}
+@media (prefers-reduced-motion:reduce){.file.solved .done{animation:none}}
+</style>
+</head>
+<body>
+<main>
+<header>
+  <span class="stamp">سرّي</span>
+  <h1>الخزنة المفقودة</h1>
+  <p class="lead">خزنة الموقع اختفت، وخلّفت وراها فلاجين. دور عليهم وارجع بصيغة <code dir="ltr">FLAG{...}</code>.</p>
+</header>
+
+<!-- TODO: امسح هالسطر قبل ما نرفع الموقع للإنتاج -->
+<!-- FLAG{v1ew_s0urc3_f1nds_h1dd3n_th1ngs} -->
+<section class="file" id="c1">
+  <span class="done">تم الحل</span>
+  <span class="tag">الملف الأول</span>
+  <h2>اللي ما تشوفه العين</h2>
+  <p>الفلاج موجود في هذي الصفحة نفسها، لكن <mark>ما راهوش ظاهر</mark> على الشاشة. المتصفح يعرف يوريك كيف انبنت الصفحة.</p>
+</section>
+
+<section class="file" id="c2">
+  <span class="done">تم الحل</span>
+  <span class="tag">الملف الثاني</span>
+  <h2>ممنوع على الروبوتات</h2>
+  <p>كل موقع يقول لمحركات البحث وين <mark>ما تدخلش</mark>. اعرف الجواب من الموقع نفسه، وادخل انت وين الروبوتات ممنوعة.</p>
+</section>
+
+<section class="file" id="submit" style="border-right-color:var(--stamp)">
+  <h2>سلّم الفلاج</h2>
+  <form id="f" autocomplete="off">
+    <input id="flag" placeholder="FLAG{...}" aria-label="الفلاج" required>
+    <button type="submit">تحقق</button>
+  </form>
+  <p id="msg" role="status"></p>
+</section>
+
+<footer>تحدّي ويب للمبتدئين. ما فيه شي يحتاج أدوات خارجية، متصفحك يكفي.</footer>
+</main>
+
+<script>
+const HASHES={c1:"098a8f0d679eb5bf6df5c83ff065ee282629ae26d40747463d2f60584e2aa3c9",c2:"5e684fae19440ca104b0dfb4d47fad450e0da65b70af33a217c40c97791dacb8"};
+async function sha(s){
+  const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(s));
+  return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join("");
+}
+const msg=document.getElementById("msg");
+document.getElementById("f").addEventListener("submit",async e=>{
+  e.preventDefault();
+  const v=document.getElementById("flag").value.trim();
+  msg.className="";
+  if(!(window.crypto&&crypto.subtle)){msg.textContent="افتح الصفحة عبر https أو localhost.";msg.className="bad";return}
+  const h=await sha(v);
+  const hit=Object.keys(HASHES).find(k=>HASHES[k]===h);
+  if(hit){
+    document.getElementById(hit).classList.add("solved");
+    msg.textContent="صح! الفلاج متاع "+(hit==="c1"?"الملف الأول":"الملف الثاني")+".";
+    msg.className="ok";
+    document.getElementById("flag").value="";
+  }else{
+    msg.textContent="الفلاج غلط. تأكد من الصيغة والحروف.";
+    msg.className="bad";
+  }
+});
+</script>
+</body>
+</html>
